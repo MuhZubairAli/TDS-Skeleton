@@ -2,5 +2,9 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tds-database" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tds-formBuilder" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tds-geoMap" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tds-utils" vcs="Git" />
   </component>
 </project>
