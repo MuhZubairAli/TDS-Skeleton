@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="15"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="?attr/drawableBackground"
+            android:fillViewport="true"
+            android:layout_weight="13">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacePrimaryHalf">
+
+                <TableRow>
+
+                    <LinearLayout
+                        android:id="@+id/btnStartSurvey"
+                        style="@style/mainMenuItem">
+
+                        <ImageView
+                            style="@style/mainMenuItem.icon"
+                            android:src="@drawable/ic_pen_writing"
+                            app:tint="?attr/colorText" />
+
+                    <TextView
+                        style="@style/mainMenuItem.text"
+                        android:text="@string/main_menu_item_start_survey" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnHousehold"
+                    style="@style/mainMenuItem">
+
+                    <ImageView
+                        style="@style/mainMenuItem.icon"
+                        android:src="@drawable/ic_pageview"
+                        app:tint="?attr/colorText" />
+
+                    <TextView
+                        style="@style/mainMenuItem.text"
+                        android:text="@string/main_menu_item_view_household" />
+                </LinearLayout>
+
+            </TableRow>
+
+
+            <TableRow>
+
+                <LinearLayout
+                    android:id="@+id/btnSync"
+                    style="@style/mainMenuItem">
+
+                    <ImageView
+                        style="@style/mainMenuItem.icon"
+                        android:src="@drawable/ic_sync"
+                        app:tint="?attr/colorText" />
+
+                    <TextView
+                        style="@style/mainMenuItem.text"
+                        android:text="@string/main_menu_item_sync" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnMap"
+                    style="@style/mainMenuItem">
+
+                    <ImageView
+                        style="@style/mainMenuItem.icon"
+                        android:src="@drawable/ic_map"
+                        app:tint="?attr/colorText" />
+
+                    <TextView
+                        style="@style/mainMenuItem.text"
+                        android:text="@string/main_menu_item_map" />
+                </LinearLayout>
+
+            </TableRow>
+
+
+            <TableRow>
+
+                <LinearLayout
+                    android:id="@+id/btnReportIssue"
+                    style="@style/mainMenuItem">
+
+                    <ImageView
+                        style="@style/mainMenuItem.icon"
+                        android:src="@drawable/ic_support"
+                        app:tint="?attr/colorText" />
+
+                    <TextView
+                        style="@style/mainMenuItem.text"
+                        android:text="@string/main_menu_item_request_help" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnExit"
+                    style="@style/mainMenuItem">
+
+                    <ImageView
+                        style="@style/mainMenuItem.icon"
+                        android:src="@drawable/ic_exit"
+                        app:tint="?attr/colorText" />
+
+                    <TextView
+                        style="@style/mainMenuItem.text"
+                        android:text="@string/main_menu_item_exit" />
+                </LinearLayout>
+
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:id="@+id/tv_notice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="?attr/colorTextDim"
+                    android:layout_margin="@dimen/spacePrimaryHalf"/>
+            </TableRow>
+
+        </TableLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:background="?attr/bgGradientCredit"
+        android:padding="@dimen/spacePrimary"
+        android:gravity="center"
+        android:layout_weight="2">
+
+        <TextView
+            android:id="@+id/tv_debug_notice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:background="@color/colorError"
+            android:text="This version of application is not for field staff, If you are enumrator and seeing this notice then kindly contact DP Centre, PBS to get the right version of application. Do not work on this app otherwise you will lose your work and data may be cleared from application Database without any notice."
+            android:textAlignment="center"
+            android:padding="@dimen/spacePrimary"/>
+
+        <TextView
+            android:text="@string/credit"
+            style="@style/textH5"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/copyright_version"
+            style="@style/textH6"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+</LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

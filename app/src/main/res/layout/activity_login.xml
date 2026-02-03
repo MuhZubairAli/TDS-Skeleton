@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/drawableBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingBottom="120dp"
+        android:layout_marginStart="@dimen/spaceBigger"
+        android:layout_marginEnd="@dimen/spaceBigger">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingRight="@dimen/spaceBig"
+            android:layout_marginBottom="@dimen/spacePrimary">
+
+            <ImageView
+                android:layout_width="330dp"
+                android:layout_height="180dp"
+                android:layout_gravity="center"
+                android:src="?attr/drawableLogo"
+                android:layout_marginBottom="@dimen/spaceBigger"
+                android:contentDescription="@string/institute_name" />
+
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="?attr/colorTextDim"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:errorEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/username"
+                style="@style/etLogin"
+                android:hint="Enter CNIC"
+                android:maxLength="13"
+                android:textSize="@dimen/fontSizeH3"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="?attr/colorTextDim"
+            android:focusable="true"
+            app:errorEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
+                style="@style/etLogin"
+                android:hint="Enter Password"
+                android:text="pbs@12345"
+                android:inputType="textPassword"
+                android:textSize="@dimen/fontSizeH3"
+                android:maxLength="16"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/spacePrimary">
+
+            <TextView
+                android:id="@+id/btnTestLogin"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:textColor="?attr/colorAccentDark"
+                android:text="Training Mode"
+                android:textSize="@dimen/fontSizeH4"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:layout_margin="@dimen/spacePrimary"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                style="@style/btnAction"
+                android:text="Login"
+                android:onClick="login"
+                android:layout_margin="@dimen/spacePrimary"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="?attr/bgGradientCredit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:padding="@dimen/spacePrimary">
+
+        <TextView
+            android:id="@+id/tv_debug_notice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:background="@color/colorError"
+            android:text="This version of application is not for field staff, If you are enumrator and seeing this notice then kindly contact DP Centre, PBS to get the right version of application. Do not work on this app otherwise you will lose your work and data may be cleared from application Database without any notice."
+            android:textAlignment="center"
+            android:padding="@dimen/spacePrimary"/>
+
+        <TextView
+            android:text="@string/credit"
+            style="@style/textH5"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/copyright_version"
+            style="@style/textH6"
+            android:textAlignment="center"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

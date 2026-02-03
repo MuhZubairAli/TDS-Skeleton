@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/drawableBackground"
+    tools:context=".activities.SyncActivity"
+    android:orientation="vertical"
+    android:padding="@dimen/spacePrimaryHalf">
+
+
+    <Button
+        android:id="@+id/btn_upload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload All (Refused, Non Contacted, Partially Refused)"
+        android:background="?attr/bgGradientAccentCompact"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/fontSizeH4"
+        android:textAllCaps="false"
+        android:layout_margin="@dimen/spacePrimaryHalf"/>
+
+
+    <Button
+        android:id="@+id/btn_import"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Import Assignments"
+        android:background="?attr/bgGradientAccentCompact"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/fontSizeH4"
+        android:textAllCaps="false"
+        android:layout_margin="@dimen/spacePrimaryHalf"/>
+
+    <Button
+        android:id="@+id/btn_backup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Backup Management"
+        android:background="?attr/bgGradientAccentCompact"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/fontSizeH4"
+        android:textAllCaps="false"
+        android:layout_margin="@dimen/spacePrimaryHalf"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+
+            <TableLayout
+                android:id="@+id/table_hh_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="*">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/thBordered" />
+
+                    <!--                    <TextView-->
+                    <!--                        android:layout_span="3"-->
+                    <!--                        android:text="@string/th_households"-->
+                    <!--                        style="@style/thBordered" />-->
+
+                    <TextView
+                        android:layout_span="3"
+                        android:text="Dates"
+                        style="@style/thBordered" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="@string/th_block_code"
+                        style="@style/thBordered" />
+
+                    <!--                    <TextView-->
+                    <!--                        android:text="@string/th_completed"-->
+                    <!--                        style="@style/thBordered" />-->
+
+                    <!--                    <TextView-->
+                    <!--                        android:text="@string/th_pending"-->
+                    <!--                        style="@style/thBordered" />-->
+
+                    <!--                    <TextView-->
+                    <!--                        android:text="@string/th_total"-->
+                    <!--                        style="@style/thBordered" />-->
+
+                    <TextView
+                        android:text="@string/th_assigned"
+                        style="@style/thBordered" />
+
+                    <TextView
+                        android:text="@string/th_start"
+                        style="@style/thBordered" />
+
+                    <TextView
+                        android:text="@string/th_end"
+                        style="@style/thBordered" />
+
+<!--                    <TextView-->
+<!--                        android:text="Households"-->
+<!--                        style="@style/thBordered" />-->
+
+                </TableRow>
+            </TableLayout>
+
+        </HorizontalScrollView>
+    </ScrollView>
+
+</LinearLayout>

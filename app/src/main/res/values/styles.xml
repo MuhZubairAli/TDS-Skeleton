@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="td_bordered">
+        <item name="android:textSize">@dimen/fontSizeNormal</item>
+        <item name="android:background">@drawable/bg_td_table</item>
+        <item name="android:textColor">?attr/colorText</item>
+    </style>
+
+    <style name="etLogin">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">?attr/colorText</item>
+        <item name="android:textSize">@dimen/fontSizeNormal</item>
+        <item name="android:ems">32</item>
+    </style>
+
+</resources>

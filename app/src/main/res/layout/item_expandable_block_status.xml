@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/spacePrimaryHalf"
+    app:cardCornerRadius="@dimen/cornerRoundRadius"
+    app:cardBackgroundColor="?attr/colorQuestionCardBackground"
+    android:elevation="@dimen/elevationHeight"
+    android:animateLayoutChanges="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacePrimary"
+            android:background="?colorAccentDark"
+            android:onClick="toggleDetails">
+
+            <TextView
+                android:id="@+id/th_blockcode"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textAlignment="textStart"
+                style="@style/textH5"
+                android:textColor="@android:color/white"
+                android:text="EB-0000000000"/>
+
+            <TextView
+                android:id="@+id/th_completed_hh"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                style="@style/textH5"
+                android:textColor="@android:color/white"
+                android:text="Completed: 00/00"/>
+
+            <TextView
+                android:id="@+id/th_deadline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                style="@style/textH5"
+                android:textColor="@android:color/white"
+                android:text="00/00/0000"/>
+
+            <ImageView
+                android:id="@+id/img_expand_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_arrow_circle_down"
+                android:layout_marginStart="@dimen/spacePrimary"/>
+
+        </LinearLayout>
+
+        <TableLayout
+            android:id="@+id/details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacePrimaryHalf"
+            android:stretchColumns="*"
+            android:visibility="gone">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:text="Pr. Code"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/td_pcode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:text="0000000000"
+                    android:textAlignment="textEnd"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:text="EB-Code"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/td_ebcode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:text="0000000000"
+                    android:textAlignment="textEnd"/>
+            </TableRow>
+
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:text="Total Farms"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/td_total_hh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:text="0"
+                    android:textAlignment="textEnd"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:text="Pending Farms"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/td_pending_hh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:text="0"
+                    android:textAlignment="textEnd"/>
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:textStyle="bold"
+                    android:text="Refused Farms" />
+
+                <TextView
+                    android:id="@+id/td_refusals_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:textAlignment="textEnd"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:textStyle="bold"
+                    android:text="N/C Farms" />
+
+                <TextView
+                    android:id="@+id/td_non_contacts_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:textAlignment="textEnd"
+                    android:text="0" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:textStyle="bold"
+                    android:text="Completed Farms" />
+
+                <TextView
+                    android:id="@+id/td_completed_household"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:textAlignment="textEnd"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:textStyle="bold"
+                    android:text="Coverage (%)" />
+
+                <TextView
+                    android:id="@+id/td_coverage_percentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:textAlignment="textEnd"
+                    android:text="0" />
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:textStyle="bold"
+                    android:text="Date Assigned" />
+
+                <TextView
+                    android:id="@+id/td_assign_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:textAlignment="textEnd"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:textStyle="bold"
+                    android:text="Start Date" />
+
+                <TextView
+                    android:id="@+id/td_start_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:textAlignment="textEnd"
+                    android:text="0" />
+            </TableRow>
+
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:textStyle="bold"
+                    android:text="End Date" />
+
+                <TextView
+                    android:id="@+id/td_end_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:textAlignment="textEnd"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:textStyle="bold"
+                    android:text="Status" />
+
+                <TextView
+                    android:id="@+id/td_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:textAlignment="textEnd"
+                    android:text="0" />
+            </TableRow>
+
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    style="@style/td_bordered"
+                    android:textStyle="bold"
+                    android:text="Address" />
+
+                <TextView
+                    android:id="@+id/td_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/td_bordered"
+                    android:layout_span="3"
+                    android:text="Mouza, Tehsil, District, Province" />
+            </TableRow>
+
+        </TableLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

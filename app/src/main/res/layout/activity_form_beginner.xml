@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/drawableBackground"
+    tools:context=".activities.FormBeginnerActivity"
+    android:orientation="vertical"
+    android:layout_weight="1">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:background="?attr/colorGray4">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnLocate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="20sp"
+            app:backgroundTint="#FFFFFF"
+            app:srcCompat="@drawable/ic_current_location" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnNavigate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="20sp"
+            app:backgroundTint="#FFFFFF"
+            app:srcCompat="@drawable/ic_navigation" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnBoundary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_margin="20sp"
+            app:backgroundTint="#FFFFFF"
+            app:srcCompat="@drawable/ic_map" />
+
+        <org.osmdroid.views.MapView
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/circularProgressIndicator"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:indicatorSize="80dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginRight="4dp"
+            app:trackThickness="10dp"
+            android:indeterminate="false"
+            app:indicatorColor="?attr/colorAccentLight"
+            app:trackColor="?attr/colorPrimaryGradientActive"
+            android:layout_gravity="bottom|end" />
+
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:fillViewport="true"
+        android:layout_margin="@dimen/spacePrimary"
+        android:layout_weight="0.6">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/bgGradientPrimary"
+                android:layout_marginBottom="@dimen/spacePrimary"
+                android:stretchColumns="*">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="Details"
+                        style="@style/tableCellZygote"
+                        android:background="?colorPrimary"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/fontSizeH3"
+                        android:layout_span="3"
+                        android:textAlignment="center"
+                        />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_pc"
+                        style="@style/tableCellZygote"/>
+
+                    <TextView
+                        android:id="@+id/tv_bc"
+                        style="@style/tableCellZygote"/>
+
+                    <TextView
+                        android:id="@+id/tv_hh"
+                        style="@style/tableCellZygote"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="@string/th_user"
+                        style="@style/tableCellZygote"/>
+
+                    <TextView
+                        android:id="@+id/tv_enumerator_name"
+                        style="@style/tableCellZygote"
+                        android:layout_span="2"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="@string/th_province"
+                        style="@style/tableCellZygote"/>
+
+                    <TextView
+                        android:id="@+id/tv_province"
+                        style="@style/tableCellZygote"
+                        android:layout_span="2"/>
+
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="@string/th_district"
+                        style="@style/tableCellZygote"/>
+
+                    <TextView
+                        android:id="@+id/tv_district"
+                        style="@style/tableCellZygote"
+                        android:layout_span="2"/>
+
+                </TableRow>
+
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="@string/th_start"
+                        style="@style/tableCellZygote"/>
+
+                    <TextView
+                        android:id="@+id/tv_assign_start_date"
+                        style="@style/tableCellZygote"
+                        android:layout_span="2"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="@string/th_end"
+                        style="@style/tableCellZygote"/>
+
+                    <TextView
+                        android:id="@+id/tv_assign_end_date"
+                        style="@style/tableCellZygote"
+                        android:layout_span="2"/>
+
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/bgGradientPrimary"
+                android:layout_marginBottom="@dimen/spacePrimary"
+                android:stretchColumns="*">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="Details"
+                        style="@style/tableCellZygote"
+                        android:background="?colorPrimary"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/fontSizeH3"
+                        android:layout_span="4"
+                        android:textAlignment="center"
+                        />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="Name"
+                        style="@style/tableCellZygote"
+                        android:textSize="@dimen/fontSizeH3"
+                        android:layout_margin="@dimen/spaceInternal"/>
+
+                    <EditText
+                        android:id="@+id/et_name_farm"
+                        style="@style/etInput"
+                        android:background="?attr/borderEditText"
+                        android:hint="Enter Poultry Farm Name"
+                        android:inputType="textCapWords"
+                        android:singleLine="true"
+                        android:textSize="@dimen/fontSizeH3"
+                        android:layout_span="3"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="Proprietor"
+                        style="@style/tableCellZygote"
+                        android:textSize="@dimen/fontSizeH3"
+                        android:layout_margin="@dimen/spaceInternal"/>
+
+                    <EditText
+                        android:id="@+id/et_name_owner"
+                        style="@style/etInput"
+                        android:background="?attr/borderEditText"
+                        android:hint="Enter Owner/Proprietor Name"
+                        android:inputType="textCapWords"
+                        android:singleLine="true"
+                        android:textSize="@dimen/fontSizeH3"
+                        android:layout_span="3"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_marginTop="@dimen/spacePrimary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/btnAction"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/specify_option_action_btn_title"
+                        android:layout_span="4"
+                        style="@style/btnInput"/>
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

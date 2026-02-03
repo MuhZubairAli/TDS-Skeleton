@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/spaceBig"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="?attr/colorQuestionCardBackground"
+        app:cardCornerRadius="@dimen/cornerRoundRadius"
+        app:cardElevation="@dimen/elevationHeight">
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacePrimary"
+            android:stretchColumns="*">
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/td_bc"
+                    style="@style/tableCellZygote"/>
+
+                <TextView
+                    android:id="@+id/td_pc"
+                    style="@style/tableCellZygote"/>
+
+                <TextView
+                    android:id="@+id/td_sno"
+                    style="@style/tableCellZygote"
+                    android:layout_span="2"/>
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:text="Name of Poultry Farm"
+                    style="@style/tableCellZygote"/>
+
+                <TextView
+                    android:id="@+id/td_name_poultry"
+                    style="@style/tableCellZygote"
+                    android:layout_span="3"/>
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:text="Owner Name"
+                    style="@style/tableCellZygote"/>
+
+                <TextView
+                    android:id="@+id/td_name"
+                    style="@style/tableCellZygote"
+                    android:layout_span="3"/>
+
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="Phone #"
+                    style="@style/tableCellZygote"/>
+
+                <TextView
+                    android:id="@+id/td_phone"
+                    style="@style/tableCellZygote"
+                    android:layout_span="3"/>
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:text="@string/th_mouza"
+                    style="@style/tableCellZygote"/>
+
+                <TextView
+                    android:id="@+id/td_mouza"
+                    style="@style/tableCellZygote"
+                    android:layout_span="3"/>
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:text="@string/th_address"
+                    style="@style/tableCellZygote"/>
+
+                <TextView
+                    android:id="@+id/td_address"
+                    style="@style/tableCellZygote"
+                    android:layout_span="3"/>
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:text="Geo-tag Method"
+                    style="@style/tableCellZygote"/>
+
+                <TextView
+                    android:id="@+id/td_geo_method"
+                    style="@style/tableCellZygote"
+                    android:layout_span="3"/>
+
+            </TableRow>
+
+            <TableRow>
+<!--                <Button-->
+<!--                    android:id="@+id/btnNavigate"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/label_btn_navigate"-->
+<!--                    android:drawableStart="@drawable/ic_navigation" />-->
+
+                <Button
+                    android:id="@+id/btnClose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_close"
+                    android:text="@string/label_btn_close_window"
+                    android:tint="?attr/colorAccentDark"/>
+            </TableRow>
+        </TableLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

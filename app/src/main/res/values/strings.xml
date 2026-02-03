@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Tablet Based Data Collection System</string>
+    <string name="app_subtitle">Tablet based Data Collection System</string>
+
+    <!-- Labels for Main Menu Buttons -->
+    <string name="main_menu_item_exit">Exit</string>
+    <string name="main_menu_item_view_household">Blocks Status</string>
+    <string name="main_menu_item_start_survey">Start Survey</string>
+    <string name="main_menu_item_sync">Data Management</string>
+    <string name="main_menu_item_map">View Map</string>
+    <string name="main_menu_item_request_help">Help Centre</string>
+
+
+    <string name="app_icon_name">Poultry Farms Enumeration</string>
+    <string name="label_btn_navigate">Navigate</string>
+    <string name="label_btn_close_window">Close</string>
+    <string name="label_btn_load_map">Load Map</string>
+    <string name="target_household_distance_title"><![CDATA[ Distance: %1$s ]]></string>
+    <string-array name="issue_categories">
+        <item>Questionnaire Related Issue (Subject Matter)</item>
+        <item>Section Specific Issue (IT)</item>
+        <item>Application Crash (Developer)</item>
+        <item>Other (Any)</item>
+    </string-array>
+    <string name="target_household_distance_description"><![CDATA[ Direct distance between current location and target household is <bigger>%1$s meter</bigger>, this is updated when current location marker or target household icon is tapped to pop up info bubble. ]]></string>
+    <string name="title_activity_splash">Splash</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="label_app_title">SURVEY ON RAISING OF POULTRY</string>
+    <string name="desc_logo">Application Logo</string>
+
+    <!--  Strings used for fragments for navigation  -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="ministry_logo">Ministry of PDSI logo</string>
+</resources>

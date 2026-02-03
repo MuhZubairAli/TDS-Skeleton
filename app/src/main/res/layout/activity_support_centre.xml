@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.SupportCentreActivity"
+    android:orientation="vertical"
+    android:padding="@dimen/spacePrimaryHalf"
+    android:background="?attr/drawableBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_margin="@dimen/spacePrimaryHalf"
+            app:cardCornerRadius="@dimen/cornerRoundRadius"
+            app:cardBackgroundColor="?attr/colorQuestionCardBackground"
+            android:elevation="@dimen/elevationHeight"
+            android:animateLayoutChanges="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/spacePrimary"
+                    android:background="?colorAccentDark">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textAlignment="textStart"
+                        style="@style/textH5"
+                        android:textColor="@android:color/white"
+                        android:text="Helping Material"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_bookmark"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/container_links"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_margin="@dimen/spacePrimaryHalf"
+            app:cardCornerRadius="@dimen/cornerRoundRadius"
+            app:cardBackgroundColor="?attr/colorQuestionCardBackground"
+            android:elevation="@dimen/elevationHeight"
+            android:animateLayoutChanges="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/form_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/spacePrimary"
+                    android:background="?colorAccentDark">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textAlignment="textStart"
+                        style="@style/textH5"
+                        android:textColor="@android:color/white"
+                        android:padding="@dimen/spacePrimaryHalf"
+                        android:text="Report a problem"/>
+
+                    <ImageView
+                        android:id="@+id/img_expand_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_arrow_circle_up"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/form_body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="2"
+                    android:layout_margin="@dimen/spacePrimaryHalf"
+                    android:animateLayoutChanges="true">
+
+                    <EditText
+                        android:id="@+id/et_issue_subject"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="?attr/colorText"
+                        style="@style/etInput"
+                        android:background="?attr/borderEditText"
+                        android:singleLine="true"
+                        android:lines="1"
+                        android:layout_weight="2"
+                        android:hint="Enter subject" />
+
+                    <EditText
+                        android:id="@+id/et_issue_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/etInput"
+                        android:background="?attr/borderEditText"
+                        android:lines="3"
+                        android:singleLine="false"
+                        android:layout_weight="2"
+                        android:gravity="top|start"
+                        android:hint="Enter description" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?borderEditText"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/spacePrimaryHalf">
+
+                        <Spinner
+                            android:id="@+id/sp_issue_type"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/container_spScreen"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?borderEditText"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/spacePrimaryHalf">
+
+                        <Spinner
+                            android:id="@+id/sp_screen"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/container_spEbHh"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?borderEditText"
+                        android:layout_weight="1"
+                        android:weightSum="2"
+                        android:layout_margin="@dimen/spacePrimaryHalf"
+                        android:visibility="gone">
+
+                        <Spinner
+                            android:id="@+id/sp_ebc"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+
+                        <Spinner
+                            android:id="@+id/sp_hh"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/et_contact_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="?attr/colorText"
+                        style="@style/etInput"
+                        android:background="?attr/borderEditText"
+                        android:singleLine="true"
+                        android:lines="1"
+                        android:layout_weight="2"
+                        android:hint="Enter Contact Number"
+                        android:maxLength="11"
+                        android:inputType="phone"/>
+
+                    <Button
+                        android:id="@+id/btn_issue_submit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?attr/bgGradientAccentCompact"
+                        android:textColor="@android:color/white"
+                        android:text="Submit (Requires Internet)"
+                        android:layout_margin="@dimen/spacePrimaryHalf"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_margin="@dimen/spacePrimaryHalf"
+            app:cardCornerRadius="@dimen/cornerRoundRadius"
+            app:cardBackgroundColor="?attr/colorQuestionCardBackground"
+            android:elevation="@dimen/elevationHeight"
+            android:animateLayoutChanges="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/spacePrimary"
+                    android:background="?colorAccentDark">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textAlignment="textStart"
+                        style="@style/textH5"
+                        android:textColor="@android:color/white"
+                        android:text="Fixes for reported problems (if applicable)"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_engineering"/>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_scan_fixes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/bgGradientAccentCompact"
+                    android:textColor="@android:color/white"
+                    android:text="Scan Fixes (Requires Internet)"
+                    android:layout_margin="@dimen/spacePrimary"/>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:dividerColor="?attr/colorGray5"/>
+
+                <LinearLayout
+                    android:id="@+id/container_fixes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacePrimaryHalf">
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+</ScrollView>

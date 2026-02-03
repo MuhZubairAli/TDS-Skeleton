@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.SplashActivity"
+    android:background="@android:color/holo_blue_dark">
+
+    <ImageView
+        android:id="@+id/img_ministry_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:contentDescription="@string/ministry_logo"
+        android:src="@drawable/ministry_logo"
+        android:alpha="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/img_logo"/>
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="388dp"
+        android:layout_height="200dp"
+        android:alpha="0"
+        android:contentDescription="@string/desc_logo"
+        android:src="@drawable/logo_pbs_sm_black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_ministry_logo"
+        app:layout_constraintBottom_toTopOf="@id/txt_title"/>
+
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_app_title"
+        android:layout_margin="@dimen/spaceBigger"
+        android:textAlignment="center"
+        android:textColor="?colorText"
+        android:alpha="0"
+        android:textSize="@dimen/fontSizeH2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_logo"
+        app:layout_constraintBottom_toTopOf="@+id/txt_version"/>
+
+    <TextView
+        android:id="@+id/txt_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="@dimen/fontSizeH4"
+        android:alpha="0"
+        android:textColor="?colorText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/progress_circular"
+        app:layout_constraintTop_toBottomOf="@id/txt_title"
+        />
+
+    <ProgressBar
+        android:id="@+id/progress_circular"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="@dimen/spaceBig"
+        android:alpha="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_version"
+        app:layout_constraintBottom_toTopOf="@+id/footer"
+        android:indeterminate="true"/>
+
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:alpha="0"
+        android:background="?attr/bgGradientCredit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:padding="@dimen/spacePrimary">
+
+        <TextView
+            android:text="@string/credit"
+            style="@style/textH5"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/copyright_version"
+            style="@style/textH6"
+            android:textAlignment="center"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

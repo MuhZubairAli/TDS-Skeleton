@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/td_bc"
+        style="@style/textH4" />
+
+    <TextView
+        android:id="@+id/td_assign_date"
+        android:textColor="?attr/colorText"/>
+
+    <TextView
+        android:id="@+id/td_start_date"
+        android:textColor="?attr/colorText"/>
+
+    <TextView
+        android:id="@+id/td_end_date"
+        android:textColor="?attr/colorText"/>
+
+</TableRow>

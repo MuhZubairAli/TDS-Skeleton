@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_household"
+        style="@style/tableCell" />
+
+    <TextView
+        android:id="@+id/tv_section_status"
+        style="@style/tableCell" />
+
+    <ImageView
+        android:id="@+id/img_status"
+        android:layout_width="@dimen/spaceBig"
+        android:layout_height="@dimen/spaceBig"
+        app:tint="?attr/colorText" />
+
+    <Button
+        android:id="@+id/btn_start"
+        android:text="@string/label_btn_begin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.Button.Small"/>
+
+    <Button
+        android:id="@+id/btn_verify"
+        android:text="@string/label_btn_verify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.Button.Small"/>
+</TableRow>

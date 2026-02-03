@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/tableCellZygote"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/spacePrimaryHalf">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textAlignment="textStart"
+        android:textColor="?attr/colorText"
+        android:text="Title"
+        style="@style/textH4"/>
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textAlignment="textStart"
+        android:textColor="?attr/colorText"
+        android:text="Description of the issue"/>
+
+    <LinearLayout
+        android:id="@+id/container_actions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_fix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Apply Fix"/>
+
+    </LinearLayout>
+</LinearLayout>

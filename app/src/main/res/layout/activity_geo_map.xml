@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <org.osmdroid.views.MapView
+        android:id="@+id/onlineMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/spaceSmall"
+        android:layout_gravity="top|start">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Spinner
+                android:id="@+id/spi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spaceInternal"/>
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/tvDistance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:padding="@dimen/spacePrimaryHalf"
+            android:textStyle="bold"
+            android:visibility="gone"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:textColor="#000000"
+            android:background="#99ffffff"
+            />
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnBoundary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/spaceSmall"
+        android:layout_marginBottom="@dimen/spaceHuge"
+        app:backgroundTint="#FFFFFF"
+        app:srcCompat="@drawable/ic_map" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnLocate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/spaceSmall"
+        app:backgroundTint="#FFFFFF"
+        app:srcCompat="@drawable/ic_current_location" />
+
+    <TextView
+        android:id="@+id/tv_map_source"
+        style="@style/textH4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
+        android:layout_margin="@dimen/spaceSmall"
+        android:paddingHorizontal="@dimen/spaceSmall"
+        android:paddingVertical="@dimen/spacePrimaryHalf"
+        />
+</FrameLayout>

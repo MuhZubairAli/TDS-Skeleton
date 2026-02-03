@@ -1,0 +1,12 @@
+[submodule "tds-utils"]
+	path = tds-utils
+	url = https://github.com/MuhZubairAli/TDS-Utils
+[submodule "tds-database"]
+	path = tds-database
+	url = https://github.com/MuhZubairAli/TDS-Database
+[submodule "tds-formBuilder"]
+	path = tds-formBuilder
+	url = https://github.com/MuhZubairAli/TDS-FormBuilder
+[submodule "tds-geoMap"]
+	path = tds-geoMap
+	url = https://github.com/MuhZubairAli/TDS-GeoMap

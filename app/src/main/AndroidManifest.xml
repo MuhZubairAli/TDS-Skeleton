@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:name=".CustomApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.TabletBasedDataCollectionSystem"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+
+        <service android:name=".services.SyncService" android:exported="true"/>
+        <receiver android:name=".services.SyncService$SyncBroadcastReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="pk.gov.pbs.hies.services.SyncService.SYNC_READY"/>
+            </intent-filter>
+        </receiver>
+        <service android:name=".services.SyncScheduler" android:exported="true" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:name=".services.SyncServiceInitiate" android:enabled="true" android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+<!--        <activity android:name=".activities.SplashActivity" android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN"/>-->
+<!--                <category android:name="android.intent.category.LAUNCHER"/>-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+
+        <activity android:name=".activities.MainMenuActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+<!--        <activity android:name=".activities.MainMenuActivity" android:exported="false" />-->
+        <activity android:name="pk.gov.pbs.forms.MainActivity" android:exported="false" />
+
+        <activity android:name=".activities.SyncActivity" android:exported="false"/>
+        <activity android:name=".activities.BlockStatusActivity" android:exported="false"/>
+        <activity android:name=".activities.FormBeginnerActivity" android:exported="false"/>
+        <activity android:name=".activities.FormsListingActivity" android:exported="false"/>
+        <activity android:name=".activities.BackupActivity" android:exported="false"/>
+        <activity android:name=".activities.SupportCentreActivity" android:exported="false"/>
+        <activity android:name=".activities.LoginActivity" android:exported="false" />
+        <activity android:name=".activities.GeoMapActivity" android:exported="false" android:theme="@style/Theme.AppCompat"/>
+
+        <activity android:name="pk.gov.pbs.forms.PrimaryFormActivity" android:exported="false"/>
+        <activity android:name="pk.gov.pbs.forms.SecondaryFormActivity" android:exported="false"/>
+        <activity android:name="pk.gov.pbs.forms.TertiaryFormActivity" android:exported="false" />
+        <activity android:name="pk.gov.pbs.forms.S1AActivity" android:exported="false"/>
+
+    </application>
+
+</manifest>
