@@ -1,8 +1,5 @@
 package pk.gov.pbs.forms;
 
-import android.text.InputType;
-import android.view.ViewGroup;
-
 import androidx.lifecycle.ViewModelProvider;
 
 import java.util.HashMap;
@@ -18,7 +15,6 @@ import pk.gov.pbs.formbuilder.core.ViewModelSection;
 import pk.gov.pbs.formbuilder.exceptions.InvalidQuestionStateException;
 import pk.gov.pbs.formbuilder.meta.Constants;
 import pk.gov.pbs.formbuilder.models.PrimaryModel;
-import pk.gov.pbs.formbuilder.pojos.DatumIdentifier;
 import pk.gov.pbs.formbuilder.pojos.JsonQuestion;
 import pk.gov.pbs.forms.meta.ErrorStatements;
 import pk.gov.pbs.forms.meta.MetaManifest;
@@ -127,6 +123,69 @@ public class JsonBasedFormActivity extends ActivitySectionHousehold {
                         new HashMap<>(){{
                             put("Validator", "required");
                         }}
+                ),
+
+                new JsonQuestion(
+                        new String[]{"dob"},
+                        "Enter your date of birth",
+                        "Choose date using input calendar",
+                        "DI",
+                        null,
+                        new HashMap<>(){{
+                            put("Validator", "required");
+                        }}
+                ),
+
+
+                new JsonQuestion(
+                        new String[]{"var1, var2, var3, var4, var5"},
+                        "Example of Grouped Input",
+                        "Example of multiple inputs in a group",
+                        "GI",
+                        null,
+
+                        new HashMap<>(){{
+                            put("Validator", "required");
+                        }},
+
+                        new JsonQuestion(
+                                new String[]{"var1"},
+                                "Example of keyboard input in a group question",
+                                "Max 16 characters",
+                                "KBI",
+                                null,
+                                new HashMap<>(){{
+                                    put("Validator", "length:16");
+                                    put("InputType", "TYPE_CLASS_TEXT");
+                                }}
+                        ),
+
+                        new JsonQuestion(
+                                new String[]{"var2"},
+                                "Example of radio input in a group question",
+                                "Choose on option",
+                                "RBI",
+                                new String[]{"Option A", "Option B", "Option C", "Option D"},
+                                new HashMap<>(){{
+                                    put("Validator", "required");
+                                    put("ColumnCount", "DOUBLE");
+                                }}
+                        ),
+
+                        new JsonQuestion(
+                                new String[]{"var3, var4, var5"},
+                                "Example of check input in a group question",
+                                "Choose multiple option",
+                                "CBI",
+                                new String[]{
+                                        "Option A", "Option B", "Option C", "Option D"
+                                },
+                                new HashMap<>(){{
+                                    put("Validator", "required");
+                                    put("ColumnCount", "DOUBLE");
+                                }}
+                        )
+
                 )
         };
 
