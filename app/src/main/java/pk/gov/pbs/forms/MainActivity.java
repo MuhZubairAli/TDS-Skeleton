@@ -92,5 +92,12 @@ public class MainActivity extends ThemedCustomActivity {
             intent.putExtra(Constants.Index.INTENT_EXTRA_FORM_CONTEXT, mFormContext);
             startActivity(intent);
         });
+
+        binding.btn6.setOnClickListener((v)-> {
+            FormContext mFormContext = new FormContext("0000000000",4);
+            Intent intent = new Intent(this, MetaManifest.getInstance().getSection(mFormContext.getSection()));
+            intent.putExtra(Constants.Index.INTENT_EXTRA_FORM_CONTEXT, mFormContext);
+            startActivity(intent);
+        });
     }
 }

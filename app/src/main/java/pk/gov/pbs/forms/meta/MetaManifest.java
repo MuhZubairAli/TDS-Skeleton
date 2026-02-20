@@ -2,6 +2,8 @@ package pk.gov.pbs.forms.meta;
 
 import pk.gov.pbs.formbuilder.core.IMetaManifest;
 import pk.gov.pbs.formbuilder.models.FormContext;
+import pk.gov.pbs.formbuilder.models.PrimaryModel;
+import pk.gov.pbs.forms.JsonBasedFormActivity;
 import pk.gov.pbs.forms.PrimaryFormActivity;
 import pk.gov.pbs.forms.S1AActivity;
 import pk.gov.pbs.forms.models.PrimaryFormModel;
@@ -21,15 +23,15 @@ import pk.gov.pbs.tds.activities.FormsListingActivity;
 public class MetaManifest implements IMetaManifest {
     private static MetaManifest INSTANCE;
     private static final Class<?>[] MODELS = new Class[] {
-           PrimaryFormModel.class, SecondaryFormModel.class, TertiaryFormModel.class, S1AModel.class
+           PrimaryFormModel.class, SecondaryFormModel.class, TertiaryFormModel.class, S1AModel.class, PrimaryModel.class
     };
 
     private static final Class<?>[] SECTIONS = new Class[] {
-            PrimaryFormActivity.class, SecondaryFormActivity.class, TertiaryFormActivity.class, S1AActivity.class
+            PrimaryFormActivity.class, SecondaryFormActivity.class, TertiaryFormActivity.class, S1AActivity.class, JsonBasedFormActivity.class
     };
 
     private static final String[] IDENTIFIERS = new String[] {
-            "Primary Form Example", "Secondary Form Example", "Tertiary Form Example", "Roster Section Example"
+            "Primary Form Example", "Secondary Form Example", "Tertiary Form Example", "Roster Section Example", "Example Json Form"
     };
 
     private MetaManifest(){
@@ -59,11 +61,6 @@ public class MetaManifest implements IMetaManifest {
     @Override
     public Class<?> getStarterActivity() {
         return FormsListingActivity.class;
-    }
-
-    @Override
-    public Class<?> getHouseholdRosterSection() {
-        return null;
     }
 
 }

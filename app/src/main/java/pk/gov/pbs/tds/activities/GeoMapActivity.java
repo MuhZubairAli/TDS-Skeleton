@@ -389,7 +389,7 @@ public class GeoMapActivity extends ThemedCustomActivity {
 
     private void updateMapSource(String source, OnlineTileSourceBase tileSource){
         mapView.setTileSource(tileSource);
-        tvMapSource.setText("Map Source: " + source + " " + Constants.Symbols.StartYellow);
+        tvMapSource.setText("Map Source: " + source + " " + Constants.Symbols.StarYellow);
         CustomApplication.updateConfigurations(conf -> {
             conf.MAP_TILES_PROVIDER = source;
         });

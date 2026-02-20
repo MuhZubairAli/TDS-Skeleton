@@ -1,5 +1,7 @@
 package pk.gov.pbs.forms;
 
+import android.view.ViewGroup;
+
 import androidx.lifecycle.ViewModelProvider;
 
 import pk.gov.pbs.formbuilder.core.ActivitySection;
@@ -34,6 +36,11 @@ public class PrimaryFormActivity extends ActivitySection {
     @Override
     protected QuestionnaireManager<?> constructQuestionnaireManager() {
         return new DefaultQuestionnaireManager<>(this, PrimaryFormModel.class);
+    }
+
+    @Override
+    protected void setupSectionToolbox(ViewGroup containerTop) {
+
     }
 
     @Override

@@ -31,6 +31,7 @@ import pk.gov.pbs.formbuilder.meta.Constants;
 import pk.gov.pbs.formbuilder.models.LoginPayload;
 import pk.gov.pbs.formbuilder.utils.ThemeUtils;
 import pk.gov.pbs.forms.MainActivity;
+import pk.gov.pbs.forms.meta.LoadAnnexures;
 import pk.gov.pbs.tds.CustomApplication;
 import pk.gov.pbs.tds.database.FormRepository;
 import pk.gov.pbs.tds.services.SyncService;
@@ -48,7 +49,7 @@ public class MainMenuActivity extends ThemedCustomActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(pk.gov.pbs.tds.R.layout.activity_main_menu);
-        setActivityTitle("Poultry Farms | Main Menu", "Main Menu");
+        setActivityTitle("TDS | Main Menu", "Main Menu");
 
         mFormBuilderRepo = FormBuilderRepository.getInstance(getApplication());
 
@@ -65,22 +66,22 @@ public class MainMenuActivity extends ThemedCustomActivity {
         if (!FileManager.hasAllPermissions(this))
             FileManager.requestAllPermissions(this);
 
-        if (!LocationService.hasAllPermissions(this)) {
-            if (!LocationService.hasRequiredPermissions(this))
-                LocationService.requestRequiredPermissions(this);
+//        if (!LocationService.hasAllPermissions(this)) {
+//            if (!LocationService.hasRequiredPermissions(this))
+//                LocationService.requestRequiredPermissions(this);
+//
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+//                if (!LocationService.hasPermissionBackgroundAccess(this))
+//                    LocationService.requestPermissionBackgroundAccess(this);
+//            }
+//        }
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                if (!LocationService.hasPermissionBackgroundAccess(this))
-                    LocationService.requestPermissionBackgroundAccess(this);
-            }
-        }
-
-        if (!SyncService.isRunning()) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                startForegroundService(new Intent(this, SyncService.class));
-            } else
-                startService(new Intent(this, SyncService.class));
-        }
+//        if (!SyncService.isRunning()) {
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//                startForegroundService(new Intent(this, SyncService.class));
+//            } else
+//                startService(new Intent(this, SyncService.class));
+//        }
 
         //in older version this configuration setting is not available, so setting it to english by default
 //        if (getConfigurations().LANGUAGE == null || getConfigurations().LANGUAGE.isEmpty()){
@@ -88,6 +89,9 @@ public class MainMenuActivity extends ThemedCustomActivity {
 //                conf.LANGUAGE = "en";
 //            });
 //        }
+
+        if (mFormBuilderRepo.getAnnexDao().getAnnexCount() == 0)
+            LoadAnnexures.load(mFormBuilderRepo);
 
         initButton();
         ((TextView) findViewById(pk.gov.pbs.tds.R.id.copyright_version))

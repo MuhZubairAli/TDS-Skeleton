@@ -51,8 +51,6 @@ public class S1AActivity extends ActivitySectionMember {
                 mViewModel.getHouseholdMembersFiltered().add(member);
         }
 
-        loadTopContainer();
-
         if (mViewModel.getHouseholdMembers().isEmpty())
             startSectionImmediate();
     }
@@ -65,12 +63,8 @@ public class S1AActivity extends ActivitySectionMember {
 
 
     @Override
-    protected void loadTopContainer() {
-        ViewGroup containerTop = findViewById(pk.gov.pbs.formbuilder.R.id.container_toolbox);
-        containerTop.removeAllViews();
+    protected void setupSectionToolbox(ViewGroup containerTop) {
         ViewGroup toolbox = (ViewGroup) getLayoutInflater().inflate(pk.gov.pbs.formbuilder.R.layout.toolbox_form_roster_section_filter_spi_btn, containerTop);
-
-//            loadTopContainerSectionInfo(toolbox);
 
         toolbox.findViewById(pk.gov.pbs.formbuilder.R.id.btn).setOnLongClickListener((view)->{
             if(mSpinnerMembers.getSelectedItemPosition() == 0)
@@ -154,8 +148,6 @@ public class S1AActivity extends ActivitySectionMember {
             return true;
         });
 
-        mSpinnerMembers = toolbox.findViewById(pk.gov.pbs.formbuilder.R.id.spi);
-        setupSpiMembers(mSpinnerMembers);
     }
 
     @Override
@@ -331,6 +323,6 @@ public class S1AActivity extends ActivitySectionMember {
     }
 
     public String getApplicationVersion(){
-        return getApplicationVersion();
+        return CustomApplication.getApplicationVersion();
     }
 }

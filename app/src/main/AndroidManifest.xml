@@ -58,6 +58,7 @@
         <activity android:name="pk.gov.pbs.forms.SecondaryFormActivity" android:exported="false"/>
         <activity android:name="pk.gov.pbs.forms.TertiaryFormActivity" android:exported="false" />
         <activity android:name="pk.gov.pbs.forms.S1AActivity" android:exported="false"/>
+        <activity android:name="pk.gov.pbs.forms.JsonBasedFormActivity" android:exported="false" />
 
     </application>
 

@@ -73,7 +73,7 @@ public class FormsListingActivity extends ThemedCustomActivity {
         LoginPayload loginPayload = CustomApplication.getLoginPayload();
 
         binding.btnAddFarm.setOnClickListener(v -> {
-            FormContext formContext = new FormContext(CustomApplication.getLoginPayload().selectedBlock, 100,0);
+            FormContext formContext = new FormContext(loginPayload.mEnumBlock, 100,0);
             Intent intent = new Intent(this, FormBeginnerActivity.class);
 
             intent.putExtra(Constants.Index.INTENT_EXTRA_FORM_CONTEXT, formContext);

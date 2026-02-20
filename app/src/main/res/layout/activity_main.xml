@@ -36,6 +36,12 @@
         android:id="@+id/btn5"
         android:text="Example of Roster from HIES" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn6"
+        android:text="Json Form" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
