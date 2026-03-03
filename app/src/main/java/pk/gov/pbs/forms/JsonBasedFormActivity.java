@@ -1,5 +1,7 @@
 package pk.gov.pbs.forms;
 
+import android.content.DialogInterface;
+
 import androidx.lifecycle.ViewModelProvider;
 
 import java.util.HashMap;
@@ -16,6 +18,8 @@ import pk.gov.pbs.formbuilder.exceptions.InvalidQuestionStateException;
 import pk.gov.pbs.formbuilder.meta.Constants;
 import pk.gov.pbs.formbuilder.models.PrimaryModel;
 import pk.gov.pbs.formbuilder.pojos.JsonQuestion;
+import pk.gov.pbs.formbuilder.utils.ValueStore;
+import pk.gov.pbs.formbuilder.validator.Validator;
 import pk.gov.pbs.forms.meta.ErrorStatements;
 import pk.gov.pbs.forms.meta.MetaManifest;
 import pk.gov.pbs.forms.models.PrimaryFormModel;
@@ -23,6 +27,7 @@ import pk.gov.pbs.tds.CustomApplication;
 import pk.gov.pbs.tds.DefaultQuestionnaireManager;
 import pk.gov.pbs.utils.ExceptionReporter;
 import pk.gov.pbs.utils.StaticUtils;
+import pk.gov.pbs.utils.UXEvent;
 
 public class JsonBasedFormActivity extends ActivitySectionHousehold {
     @Override
@@ -35,8 +40,10 @@ public class JsonBasedFormActivity extends ActivitySectionHousehold {
                         "KBI",
                         null,
                         new HashMap<>() {{
-                            put("Validator", "length:32");
                             put("InputType", "TYPE_CLASS_TEXT");
+                        }},
+                        new HashMap<>() {{
+                            put("Validator", "length:32");
                         }}
                 ),
 
@@ -52,8 +59,10 @@ public class JsonBasedFormActivity extends ActivitySectionHousehold {
                                 "Other"
                         },
                         new HashMap<>() {{
-                            put("Validator", "required");
                             put("ColumnCount", "DOUBLE");
+                        }},
+                        new HashMap<>() {{
+                            put("Validator", "required");
                         }}
                 ),
 
@@ -76,6 +85,7 @@ public class JsonBasedFormActivity extends ActivitySectionHousehold {
                                 "9th Class",
                                 "Metric",
                         },
+                        null,
                         new HashMap<>() {{
                             put("Validator", "greaterThan:3");
                         }}
@@ -94,19 +104,22 @@ public class JsonBasedFormActivity extends ActivitySectionHousehold {
                                 "Islamiyat", "Social Studies"
                         },
                         new HashMap<>() {{
-                            put("Validator", "required");
                             put("ColumnCount", "DOUBLE");
+                        }},
+                        new HashMap<>() {{
+                            put("Validator", "required");
                         }}
                 ),
 
                 new JsonQuestion(
-                        new String[]{"city"},
+                        new String[]{"country"},
                         "Specify the country where you live",
                         "Either enter code or search by text",
                         "Annex",
-                        new String[]{
-                                "{'key':'country'}"
-                        },
+                        null,
+                        new HashMap<>(){{
+                            put("DatumIdentifier", "{'key':'country'}");
+                        }},
                         new HashMap<>(){{
                             put("Validator", "required");
                         }}
@@ -117,9 +130,10 @@ public class JsonBasedFormActivity extends ActivitySectionHousehold {
                         "Enter your hobbies",
                         "Type of select from suggestion",
                         "ACKBI",
-                        new String[]{
-                                "{'section':'test', 'column':'hobbies'}"
-                        },
+                        null,
+                        new HashMap<>(){{
+                            put("DatumIdentifier", "{'section':'test', 'column':'hobbies'}");
+                        }},
                         new HashMap<>(){{
                             put("Validator", "required");
                         }}
@@ -131,6 +145,7 @@ public class JsonBasedFormActivity extends ActivitySectionHousehold {
                         "Choose date using input calendar",
                         "DI",
                         null,
+                        null,
                         new HashMap<>(){{
                             put("Validator", "required");
                         }}
@@ -138,42 +153,46 @@ public class JsonBasedFormActivity extends ActivitySectionHousehold {
 
 
                 new JsonQuestion(
-                        new String[]{"var1, var2, var3, var4, var5, var6"},
+                        new String[]{"gi"},
                         "Example of Grouped Input",
                         "Example of multiple inputs in a group",
                         "GI",
                         null,
-
+                        null,
                         new HashMap<>(){{
                             put("Validator", "required");
                         }},
 
                         new JsonQuestion(
-                                new String[]{"var1"},
+                                new String[]{"gi_kbi"},
                                 "Example of keyboard input in a group question",
                                 "Max 16 characters",
                                 "KBI",
                                 null,
                                 new HashMap<>(){{
-                                    put("Validator", "length:16");
                                     put("InputType", "TYPE_CLASS_TEXT");
+                                }},
+                                new HashMap<>(){{
+                                    put("Validator", "length:16");
                                 }}
                         ),
 
                         new JsonQuestion(
-                                new String[]{"var2"},
+                                new String[]{"gi_rbi"},
                                 "Example of radio input in a group question",
                                 "Choose on option",
                                 "RBI",
                                 new String[]{"Option A", "Option B", "Option C", "Option D"},
                                 new HashMap<>(){{
-                                    put("Validator", "required");
                                     put("ColumnCount", "DOUBLE");
+                                }},
+                                new HashMap<>(){{
+                                    put("Validator", "required");
                                 }}
                         ),
 
                         new JsonQuestion(
-                                new String[]{"var3, var4, var5"},
+                                new String[]{"gi_cbi"},
                                 "Example of check input in a group question",
                                 "Choose multiple option",
                                 "CBI",
@@ -181,19 +200,22 @@ public class JsonBasedFormActivity extends ActivitySectionHousehold {
                                         "Option A", "Option B", "Option C", "Option D"
                                 },
                                 new HashMap<>(){{
-                                    put("Validator", "required");
                                     put("ColumnCount", "DOUBLE");
+                                }},
+                                new HashMap<>(){{
+                                    put("Validator", "required");
                                 }}
                         ),
 
                         new JsonQuestion(
-                                new String[]{"var6"},
+                                new String[]{"gi_spi"},
                                 "Example of Spinner input in a group question",
                                 "Choose one option",
                                 "SPI",
                                 new String[]{
                                         "Option A", "Option B", "Option C", "Option D"
                                 },
+                                null,
                                 new HashMap<>(){{
                                     put("Validator", "greaterThan:2");
                                 }}
@@ -249,16 +271,24 @@ public class JsonBasedFormActivity extends ActivitySectionHousehold {
         if (qCount == 0 || (!mQuestionnaireManager.isSectionEnded() && qCount == 1))
             return true;
 
-        PrimaryModel model = mQuestionnaireManager.exportPrimaryModel();
-        model.entryStatus = sectionStatus;
-        model.setupDataIntegrity();
+        HashMap<String, ValueStore[]> responses = mQuestionnaireManager.exportAnswersAsMap();
+        getUXToolkit().confirm(
+                "Form Responses",
+                StaticUtils.getSimpleGson(true,false).toJson(responses).replace("\n","<br />"),
+                "Exit",
+                "Go Back",
+                new UXEvent.ConfirmDialogue() {
+                    @Override
+                    public void onCancel(DialogInterface dialog, int which) {
+                    }
 
-        long insertID = mViewModel.insertSection(model);
-        if (insertID != Constants.INVALID_NUMBER) {
-            if (mViewModel.persistFormContext() == Constants.INVALID_NUMBER)
-                mUXToolkit.toast("Failed to persist form context!");
-        }
-        return insertID != Constants.INVALID_NUMBER;
+                    @Override
+                    public void onOK(DialogInterface dialog, int which) {
+                        JsonBasedFormActivity.this.finish();
+                    }
+                }
+        );
+        return false;
     }
 
     @Override
