@@ -300,7 +300,7 @@ public class SupportCentreActivity extends ThemedCustomActivity {
                         }
 
                         try {
-                            List<?> data = mRepository.getDatabase().query(
+                            List<?> data = mRepository.getDatabase().queryRows(
                                     model,
                                     argsArray
                             );

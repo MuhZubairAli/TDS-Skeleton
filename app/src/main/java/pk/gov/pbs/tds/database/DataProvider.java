@@ -99,7 +99,7 @@ public class DataProvider {
     }
 
     private static List<?> getDataFor(FormRepository mFormRepo, Class<?> modelClass, String pcode, Integer SNo) {
-        return mFormRepo.getDatabase().query(
+        return mFormRepo.getDatabase().queryRows(
                 modelClass, "PCode = ? AND srNo = ?", pcode, String.valueOf(SNo)
         );
     }

@@ -38,7 +38,7 @@ public class MainActivity extends ThemedCustomActivity {
         binding.btn1.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                List<PrimaryFormModel> pml = repository.getDatabase().query(PrimaryFormModel.class);
+                List<PrimaryFormModel> pml = repository.getDatabase().queryRows(PrimaryFormModel.class);
                 if (pml != null && !pml.isEmpty()) {
                     StringBuilder sb = new StringBuilder();
                     for (PrimaryFormModel pm : pml)
@@ -51,7 +51,7 @@ public class MainActivity extends ThemedCustomActivity {
             }
         });
         binding.btn2.setOnClickListener((view -> {
-            PrimaryFormModel pm = repository.getDatabase().querySingle(PrimaryFormModel.class, "aid=1");
+            PrimaryFormModel pm = repository.getDatabase().query(PrimaryFormModel.class, "aid=1");
             FormContext mFormContext = new FormContext(pm.pcode, 0,1);
             Intent intent = new Intent(this, MetaManifest.getInstance().getSection(mFormContext.getSection()));
             intent.putExtra(Constants.Index.INTENT_EXTRA_FORM_CONTEXT, mFormContext);
@@ -63,7 +63,7 @@ public class MainActivity extends ThemedCustomActivity {
         binding.btn2.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                List<SecondaryFormModel> pml = repository.getDatabase().query(SecondaryFormModel.class);
+                List<SecondaryFormModel> pml = repository.getDatabase().queryRows(SecondaryFormModel.class);
                 if (pml != null && !pml.isEmpty()) {
                     StringBuilder sb = new StringBuilder();
                     for (SecondaryFormModel pm : pml)
@@ -77,7 +77,7 @@ public class MainActivity extends ThemedCustomActivity {
         });
 
         binding.btn3.setOnClickListener((view -> {
-            SecondaryFormModel tm = repository.getDatabase().querySingle(SecondaryFormModel.class, "aid=1");
+            SecondaryFormModel tm = repository.getDatabase().query(SecondaryFormModel.class, "aid=1");
 
             FormContext mFormContext = new FormContext(tm.getPrimaryIdentifier(), tm.getSecondaryIdentifier(), 0,2);
             Intent intent = new Intent(this, MetaManifest.getInstance().getSection(mFormContext.getSection()));

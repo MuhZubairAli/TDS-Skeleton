@@ -138,7 +138,7 @@ public class JsonBasedFormActivity extends ActivitySectionHousehold {
 
 
                 new JsonQuestion(
-                        new String[]{"var1, var2, var3, var4, var5"},
+                        new String[]{"var1, var2, var3, var4, var5, var6"},
                         "Example of Grouped Input",
                         "Example of multiple inputs in a group",
                         "GI",
@@ -183,6 +183,19 @@ public class JsonBasedFormActivity extends ActivitySectionHousehold {
                                 new HashMap<>(){{
                                     put("Validator", "required");
                                     put("ColumnCount", "DOUBLE");
+                                }}
+                        ),
+
+                        new JsonQuestion(
+                                new String[]{"var6"},
+                                "Example of Spinner input in a group question",
+                                "Choose one option",
+                                "SPI",
+                                new String[]{
+                                        "Option A", "Option B", "Option C", "Option D"
+                                },
+                                new HashMap<>(){{
+                                    put("Validator", "greaterThan:2");
                                 }}
                         )
 

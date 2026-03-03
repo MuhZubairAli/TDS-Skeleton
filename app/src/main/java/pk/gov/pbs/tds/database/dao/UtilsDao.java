@@ -39,7 +39,7 @@ public class UtilsDao {
 //    }
 
 //    public FormStatus getFormStatus(String PCode, Integer HHNo){
-//        return mRepository.getDatabase().querySingleRawSql(
+//        return mRepository.getDatabase().queryRawSql(
 //                FormStatus.class,
 //                "SELECT a.aid as `aid`, a.sid as `sid`, a.entryStatus as `initialEntryStatus`, b.entryStatus as `finalEntryStatus`, a.pcode as `pi`, a.srno as `si`, b.formStatus as `formStatus` FROM " + S1Model.class.getSimpleName() +
 //                        " a LEFT JOIN "+ InformationModel.class.getSimpleName()+" b ON a.pcode=b.pcode AND a.srno=b.srno WHERE a.pcode=? AND a.srno=? AND a.status=?",
@@ -49,7 +49,7 @@ public class UtilsDao {
     //------------------- Copied from FormBuilder UitlsDao ---------------------
     //@Query("SELECT * FROM fcs WHERE mPCode=:pcode and mHHNo=:hhno")
     public FormContext getFCS(FormContext fContext){
-        return mRepository.getDatabase().querySingleRawSql(
+        return mRepository.getDatabase().queryRawSql(
                 FormContext.class, "SELECT * FROM "+FormContext.class.getSimpleName()+" WHERE `pi`=? and `si`=? ORDER BY `aid` DESC LIMIT 1",
                 fContext.getPrimaryIdentifier(), String.valueOf(fContext.getSecondaryIdentifier())
         );
@@ -57,7 +57,7 @@ public class UtilsDao {
 
     //@Query("SELECT * FROM fcs WHERE mPCode=:pcode and mHHNo=:hhno")
     public FormContext getFCS(String pi, int si){
-        return mRepository.getDatabase().querySingleRawSql(
+        return mRepository.getDatabase().queryRawSql(
                 FormContext.class, "SELECT * FROM "+FormContext.class.getSimpleName()+" WHERE `pi`=? and `si`=?",
                 pi, String.valueOf(si)
         );
@@ -69,7 +69,7 @@ public class UtilsDao {
 
     //@Query("SELECT * FROM fcs")
     public List<FormContext> getAllFCs(){
-        return mRepository.getDatabase().query(
+        return mRepository.getDatabase().queryRows(
                 FormContext.class
         );
     }

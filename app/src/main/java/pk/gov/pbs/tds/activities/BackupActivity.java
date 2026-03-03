@@ -256,7 +256,7 @@ public class BackupActivity extends ThemedCustomActivity {
             public String[] execute(ModelBasedDatabaseHelper db) {
                 Map<String, List<String>> userDb = new HashMap<>();
                 for (Class<?> model : MetaManifest.getInstance().getModels()) {
-                    List<?> data = mFormRepo.getDatabase().query(model);
+                    List<?> data = mFormRepo.getDatabase().queryRows(model);
                     if (!data.isEmpty()) {
                         userDb.put(model.getSimpleName(), convertObjectListToStringList(data));
                     }
@@ -402,7 +402,7 @@ public class BackupActivity extends ThemedCustomActivity {
                     if (SystemUtils.modelHasField(model, "sid"))
                         criteria = "`sid` is null";
 
-                    List<?> data = mFormRepo.getDatabase().query(
+                    List<?> data = mFormRepo.getDatabase().queryRows(
                             model, criteria
                     );
 
