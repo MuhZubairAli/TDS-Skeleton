@@ -11,7 +11,6 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TabletBasedDataCollectionSystem"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
 
@@ -59,6 +58,7 @@
         <activity android:name="pk.gov.pbs.forms.TertiaryFormActivity" android:exported="false" />
         <activity android:name="pk.gov.pbs.forms.S1AActivity" android:exported="false"/>
         <activity android:name="pk.gov.pbs.forms.JsonBasedFormActivity" android:exported="false" />
+        <activity android:name="pk.gov.pbs.forms.JsonBasedForm2Activity" android:exported="false" />
 
     </application>
 

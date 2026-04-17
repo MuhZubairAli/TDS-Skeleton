@@ -1,0 +1,177 @@
+[
+  {
+    "questionVariables": ["name"],
+    "questionStatement": "Enter your name",
+    "questionHintStatement": "Max length 32 characters",
+    "questionType": "KBI",
+    "questionParameters": {
+      "InputType": "TYPE_CLASS_TEXT"
+    },
+    "validationRules": {
+      "Validator": "length:32"
+    },
+    "subQuestions": []
+  },
+  {
+    "questionVariables": ["gender"],
+    "questionStatement": "Specify your gender",
+    "questionHintStatement": "Select one option",
+    "questionType": "RBI",
+    "questionOptions": ["Male", "Female", "Transgender", "Other"],
+    "questionParameters": {
+      "ColumnCount": "DOUBLE"
+    },
+    "validationRules": {
+      "Validator": "required"
+    },
+    "subQuestions": []
+  },
+  {
+    "questionVariables": ["class"],
+    "questionStatement": "In which class do you read?",
+    "questionHintStatement": "Select appropriate option from list",
+    "questionType": "SPI",
+    "questionOptions": [
+      "Nursery",
+      "Kindergarten",
+      "1st Class",
+      "2nd Class",
+      "3rd Class",
+      "4th Class",
+      "Primary",
+      "6th Class",
+      "7th Class",
+      "Middle",
+      "9th Class",
+      "Metric"
+    ],
+    "validationRules": {
+      "Validator": "greaterThan:3"
+    },
+    "subQuestions": []
+  },
+  {
+    "questionVariables": ["subject"],
+    "questionStatement": "What are your favorite subject?",
+    "questionHintStatement": "Multiple selection allowed",
+    "questionType": "CBI",
+    "questionOptions": [
+      "English",
+      "Computer Science",
+      "Mathematics",
+      "Physics",
+      "Chemistry",
+      "Biology",
+      "History",
+      "Geography",
+      "Islamiyat",
+      "Social Studies"
+    ],
+    "questionParameters": {
+      "ColumnCount": "DOUBLE"
+    },
+    "validationRules": {
+      "Validator": "required"
+    },
+    "subQuestions": []
+  },
+  {
+    "questionVariables": ["country"],
+    "questionStatement": "Specify the country where you live",
+    "questionHintStatement": "Either enter code or search by text",
+    "questionType": "Annex",
+    "questionParameters": {
+      "DatumIdentifier": "{'key':'country'}"
+    },
+    "validationRules": {
+      "Validator": "required"
+    },
+    "subQuestions": []
+  },
+  {
+    "questionVariables": ["hobbies"],
+    "questionStatement": "Enter your hobbies",
+    "questionHintStatement": "Type of select from suggestion",
+    "questionType": "ACKBI",
+    "questionParameters": {
+      "DatumIdentifier": "{'section':'test', 'column':'hobbies'}"
+    },
+    "validationRules": {
+      "Validator": "required"
+    },
+    "subQuestions": []
+  },
+  {
+    "questionVariables": ["dob"],
+    "questionStatement": "Enter your date of birth",
+    "questionHintStatement": "Choose date using input calendar",
+    "questionType": "DI",
+    "validationRules": {
+      "Validator": "required"
+    },
+    "subQuestions": []
+  },
+  {
+    "questionVariables": ["gi"],
+    "questionStatement": "Example of Grouped Input",
+    "questionHintStatement": "Example of multiple inputs in a group",
+    "questionType": "GI",
+    "validationRules": {
+      "Validator": "required"
+    },
+    "subQuestions": [
+      {
+        "questionVariables": ["gi_kbi"],
+        "questionStatement": "Example of keyboard input in a group question",
+        "questionHintStatement": "Max 16 characters",
+        "questionType": "KBI",
+        "questionParameters": {
+          "InputType": "TYPE_CLASS_TEXT"
+        },
+        "validationRules": {
+          "Validator": "length:16"
+        },
+        "subQuestions": []
+      },
+      {
+        "questionVariables": ["gi_rbi"],
+        "questionStatement": "Example of radio input in a group question",
+        "questionHintStatement": "Choose on option",
+        "questionType": "RBI",
+        "questionOptions": ["Option A", "Option B", "Option C", "Option D"],
+        "questionParameters": {
+          "ColumnCount": "DOUBLE"
+        },
+        "validationRules": {
+          "Validator": "required"
+        },
+        "subQuestions": []
+      },
+      {
+        "questionVariables": ["gi_cbi"],
+        "questionStatement": "Example of check input in a group question",
+        "questionHintStatement": "Choose multiple option",
+        "questionType": "CBI",
+        "questionOptions": ["Option A", "Option B", "Option C", "Option D"],
+        "questionParameters": {
+          "ColumnCount": "DOUBLE"
+        },
+        "validationRules": {
+          "Validator": "required"
+        },
+        "subQuestions": []
+      },
+      {
+        "questionVariables": ["gi_spi"],
+        "questionStatement": "Example of Spinner input in a group question",
+        "questionHintStatement": "Choose one option",
+        "questionType": "SPI",
+        "questionOptions": ["Option A", "Option B", "Option C", "Option D"],
+        "validationRules": {
+          "Validator": "greaterThan:2"
+        },
+        "subQuestions": []
+      }
+    ]
+  }
+]
