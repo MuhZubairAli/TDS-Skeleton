@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/tds-database/Database" />
             <option value="$PROJECT_DIR$/tds-formBuilder/FormBuilder" />
             <option value="$PROJECT_DIR$/tds-geoMap/GeoMap" />
+            <option value="$PROJECT_DIR$/tds-main/TDS" />
             <option value="$PROJECT_DIR$/tds-utils/Utils" />
           </set>
         </option>

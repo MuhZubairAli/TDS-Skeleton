@@ -5,6 +5,7 @@
     <mapping directory="$PROJECT_DIR$/tds-database" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/tds-formBuilder" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/tds-geoMap" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tds-main" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/tds-utils" vcs="Git" />
   </component>
 </project>

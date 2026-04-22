@@ -2,18 +2,17 @@ plugins {
     alias(libs.plugins.android.application)
 }
 
-def versionMajor = 0
-def versionMinor = 2
+def versionMajor = 1
+def versionMinor = 0
 def versionPatch = 0
 
 android {
-    namespace 'pk.gov.pbs.tds'
+    namespace 'pk.gov.pbs.tds_example'
     compileSdk 35
 
     defaultConfig {
-        applicationId "pk.gov.pbs.tds"
+        applicationId "pk.gov.pbs.tds_example"
         minSdk 26
-        targetSdk 35
 
         versionCode versionMajor * 10000 + versionMinor * 100 + versionPatch
         versionName "${versionMajor}.${versionMinor}.${versionPatch}"
@@ -54,13 +53,7 @@ dependencies {
     implementation project(path: ':Database')
     implementation project(path: ':FormBuilder')
     implementation project(path: ':GeoMap')
-
-    implementation libs.androidofflinemaplibrary
-    implementation libs.osmbonuspack
-    implementation libs.osmdroid.android
-
-    implementation libs.gson
-    implementation libs.volley
+    implementation project(path: ':TDS')
 
     implementation libs.appcompat
     implementation libs.material

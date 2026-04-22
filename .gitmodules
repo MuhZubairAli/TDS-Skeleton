@@ -10,3 +10,9 @@
 [submodule "tds-geoMap"]
 	path = tds-geoMap
 	url = https://github.com/MuhZubairAli/TDS-GeoMap
+[submodule "tds-listing"]
+	path = tds-listing
+	url = https://github.com/MuhZubairAli/TDS-Listing
+[submodule "tds-main"]
+	path = tds-main
+	url = https://github.com/MuhZubairAli/TDS

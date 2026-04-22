@@ -27,8 +27,10 @@ include ':Utils'
 include ':Database'
 include ':FormBuilder'
 include ':GeoMap'
+include ':TDS'
 
 project(':Utils').projectDir = new File(rootDir, 'tds-utils/Utils/')
 project(':Database').projectDir = new File(rootDir, 'tds-database/Database/')
 project(':FormBuilder').projectDir = new File(rootDir, 'tds-formBuilder/FormBuilder/')
 project(':GeoMap').projectDir = new File(rootDir, 'tds-geoMap/GeoMap/')
+project(':TDS').projectDir = new File(rootDir, 'tds-main/TDS/')
