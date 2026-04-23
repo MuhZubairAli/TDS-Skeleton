@@ -1,6 +1,7 @@
 package pk.gov.pbs.tds_example.activities;
 import android.content.ContentValues;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.ViewGroup;
@@ -16,8 +17,6 @@ import pk.gov.pbs.database.IDatabaseOperation;
 import pk.gov.pbs.database.ModelBasedDatabaseHelper;
 import pk.gov.pbs.formbuilder.core.IErrorStatementProvider;
 import pk.gov.pbs.formbuilder.core.IMetaManifest;
-import pk.gov.pbs.formbuilder.core.Question;
-import pk.gov.pbs.formbuilder.meta.QuestionStates;
 import pk.gov.pbs.formbuilder.pojos.SpinnerItemRoster;
 import pk.gov.pbs.formbuilder.core.ViewModelSection;
 import pk.gov.pbs.formbuilder.core.LabelProvider;
@@ -29,13 +28,13 @@ import pk.gov.pbs.formbuilder.exceptions.InvalidQuestionStateException;
 import pk.gov.pbs.formbuilder.inputs.singular.ButtonInput;
 import pk.gov.pbs.formbuilder.meta.Constants;
 import pk.gov.pbs.formbuilder.models.RosterSection;
-import pk.gov.pbs.tds.DefaultViewModel;
 import pk.gov.pbs.tds_example.maps.S1AMap;
 import pk.gov.pbs.tds_example.meta.ErrorStatements;
 import pk.gov.pbs.tds_example.meta.MetaManifest;
 import pk.gov.pbs.tds_example.models.S1AModel;
-import pk.gov.pbs.tds.CustomApplicationBase;
+import pk.gov.pbs.tds_example.CustomApplication;
 import pk.gov.pbs.tds.DefaultQuestionnaireManager;
+import pk.gov.pbs.tds.DefaultViewModel;
 import pk.gov.pbs.utils.ExceptionReporter;
 import pk.gov.pbs.utils.StaticUtils;
 import pk.gov.pbs.utils.SystemUtils;
@@ -57,11 +56,24 @@ public class S1AActivity extends ActivitySectionMember {
     }
 
     @Override
+    protected int getSectionNumberFromDataTabPosition(int position) {
+        return position + 2;
+    }
+
+    @Override
+    protected void onActionGoNext() {
+        safeSaveOrUpdateModel(() -> {
+            Intent intent = new Intent(S1AActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        });
+    }
+
+    @Override
     protected void repeatSection() {
         super.repeatSection();
         resetSelectionSpinnerUsers();
     }
-
 
     @Override
     protected void setupSectionToolbox(ViewGroup containerTop) {
@@ -149,6 +161,8 @@ public class S1AActivity extends ActivitySectionMember {
             return true;
         });
 
+        mSpinnerMembers = toolbox.findViewById(pk.gov.pbs.formbuilder.R.id.spi);
+        setupSpiMembers(mSpinnerMembers);
     }
 
     @Override
@@ -163,7 +177,7 @@ public class S1AActivity extends ActivitySectionMember {
 
     @Override
     protected LabelProvider constructLabelProvider() {
-        return new LabelProvider(this, "1A", CustomApplicationBase.getConfigurations().getLocale());
+        return new LabelProvider(this, "1A", CustomApplication.getConfigurations().getLocale());
     }
 
     @Override
@@ -235,7 +249,7 @@ public class S1AActivity extends ActivitySectionMember {
                     break;
                 }
             }
-            mViewModel.getFormContext().setTertiaryIdentifier(model.sno);
+            mViewModel.getFormContext().setTertiaryIdentifier(model.getTertiaryIdentifier());
             if(mViewModel.persistFormContext() == Constants.INVALID_NUMBER)
                 mUXToolkit.toast("Failed to persist form context!");
             mViewModel.setCurrentMemberID(null);
@@ -251,21 +265,13 @@ public class S1AActivity extends ActivitySectionMember {
         buttons[0] = new ButtonInput(
                 Constants.Index.LABEL_BTN_REPEAT
                 , (view) -> {
-                    try {
-                        if (saveOrUpdateModel(Constants.Status.ENTRY_COMPLETED)) {
-                            repeatSection();
-                        } else
-                            mUXToolkit.toast("System failed to insert data");
-                    } catch (InvalidQuestionStateException e) {
-                        mUXToolkit.alert(pk.gov.pbs.formbuilder.R.string.e110);
-                        ExceptionReporter.handle(e);
-                    }
-                }
+            safeSaveOrUpdateModel(this::repeatSection);
+        }
         );
 
         buttons[1] = new ButtonInput(
                 Constants.Index.LABEL_BTN_NEXT_SECTION, (view) -> {
-                    mUXToolkit.confirm(pk.gov.pbs.formbuilder.R.string.alert_goto_next_section_message,
+            mUXToolkit.confirm(pk.gov.pbs.formbuilder.R.string.alert_goto_next_section_message,
                     new UXEvent.ConfirmDialogue() {
                         @Override
                         public void onCancel(DialogInterface dialog, int which) {
@@ -273,41 +279,11 @@ public class S1AActivity extends ActivitySectionMember {
 
                         @Override
                         public void onOK(DialogInterface dialog, int which) {
-                            try {
-                                if (saveOrUpdateModel(Constants.Status.ENTRY_COMPLETED)) {
-                                    gotoNextSection();
-                                } else
-                                    mUXToolkit.toast("System failed to save data");
-                            } catch (InvalidQuestionStateException e) {
-                                mUXToolkit.confirm("Lock all questions", "One or more question are unlocked (i.e has unconfirmed answer). Click 'Lock All Questions' to lock all questions and proceed or click 'Cancel' to abort.",
-                                        "Lock All Questions", "Let me check", new UXEvent.ConfirmDialogue() {
-                                            @Override
-                                            public void onCancel(DialogInterface dialog, int which) {}
-
-                                            @Override
-                                            public void onOK(DialogInterface dialog, int which) {
-                                                for (Question question : S1AActivity.this.getMap().getAskableQuestions()) {
-                                                    if (question.getState() == QuestionStates.UNLOCKED)
-                                                        question.lock();
-                                                }
-
-                                                if(S1AActivity.this.getNavigationToolkit().verifyQuestionsStatuses()){
-                                                    try {
-                                                        if(S1AActivity.this.saveOrUpdateModel(Constants.Status.ENTRY_COMPLETED)) {
-                                                            gotoNextSection();
-                                                        } else
-                                                            mUXToolkit.toast("System failed to save data, Please report the issue to DP Center and try again later.");
-                                                    } catch (InvalidQuestionStateException ex) {
-                                                        ExceptionReporter.handle(ex);
-                                                    }
-                                                }
-                                            }
-                                        });
-                            }
+                            safeSaveOrUpdateModel(S1AActivity.this::gotoNextSection);
                         }
                     }
-                );
-            }
+            );
+        }
         );
 
         return new QuestionActor(buttons);
@@ -324,6 +300,6 @@ public class S1AActivity extends ActivitySectionMember {
     }
 
     public String getApplicationVersion(){
-        return CustomApplicationBase.getApplicationVersion();
+        return CustomApplication.getApplicationVersion();
     }
 }

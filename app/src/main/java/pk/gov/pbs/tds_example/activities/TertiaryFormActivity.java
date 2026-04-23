@@ -1,5 +1,8 @@
 package pk.gov.pbs.tds_example.activities;
 
+import android.os.Bundle;
+
+import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
 import pk.gov.pbs.formbuilder.core.ActivitySectionMember;
@@ -13,7 +16,7 @@ import pk.gov.pbs.formbuilder.exceptions.InvalidQuestionStateException;
 import pk.gov.pbs.formbuilder.meta.Constants;
 import pk.gov.pbs.formbuilder.models.PrimaryModel;
 import pk.gov.pbs.tds.DefaultViewModel;
-import pk.gov.pbs.tds_example.maps.SecondaryFormMap;
+import pk.gov.pbs.tds_example.maps.TertiaryFormMap;
 import pk.gov.pbs.tds_example.meta.ErrorStatements;
 import pk.gov.pbs.tds_example.meta.MetaManifest;
 import pk.gov.pbs.tds_example.models.TertiaryFormModel;
@@ -22,6 +25,14 @@ import pk.gov.pbs.tds.DefaultQuestionnaireManager;
 import pk.gov.pbs.utils.ExceptionReporter;
 
 public class TertiaryFormActivity extends ActivitySectionMember {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getViewModel().getHouseholdMembersFiltered().addAll(
+                getViewModel().getHouseholdMembers()
+        );
+    }
+
     @Override
     protected IErrorStatementProvider constructErrorStatementProvider() {
         return ErrorStatements.getInstance();
@@ -39,7 +50,7 @@ public class TertiaryFormActivity extends ActivitySectionMember {
 
     @Override
     protected QuestionnaireMap constructMap() {
-        return new SecondaryFormMap();
+        return new TertiaryFormMap();
     }
 
     @Override

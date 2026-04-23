@@ -31,7 +31,7 @@ public class MainActivity extends ThemedCustomActivity {
         repository = FormRepository.getInstance(getApplication());
 
         binding.btn1.setOnClickListener((view -> {
-            FormContext mFormContext = new FormContext("123456789",0);
+            FormContext mFormContext = new FormContext("",0);
             Intent intent = new Intent(this, MetaManifest.getInstance().getSection(mFormContext.getSection()));
             intent.putExtra(Constants.Index.INTENT_EXTRA_FORM_CONTEXT, mFormContext);
             startActivity(intent);
@@ -80,14 +80,18 @@ public class MainActivity extends ThemedCustomActivity {
         });
 
         binding.btn3.setOnClickListener((view -> {
-            SecondaryFormModel tm = repository.getDatabase().query(SecondaryFormModel.class, "aid=1");
+            //SecondaryFormModel tm = repository.getDatabase().query(SecondaryFormModel.class, "aid=2");
 
-            FormContext mFormContext = new FormContext(tm.getPrimaryIdentifier(), tm.getSecondaryIdentifier(), 0,2);
+            FormContext mFormContext = new FormContext("12345678", 100,2);
             Intent intent = new Intent(this, MetaManifest.getInstance().getSection(mFormContext.getSection()));
             intent.putExtra(Constants.Index.INTENT_EXTRA_FORM_CONTEXT, mFormContext);
 
             startActivity(intent);
         }));
+
+        binding.btn4.setOnClickListener((view)->{
+            mUXToolkit.toast("Not implemented yet");
+        });
 
         binding.btn5.setOnClickListener((v)-> {
             FormContext mFormContext = new FormContext("12345678",100,3);

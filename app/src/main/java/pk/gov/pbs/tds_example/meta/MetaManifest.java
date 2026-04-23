@@ -2,6 +2,7 @@ package pk.gov.pbs.tds_example.meta;
 
 import pk.gov.pbs.formbuilder.core.IMetaManifest;
 import pk.gov.pbs.formbuilder.models.PrimaryModel;
+import pk.gov.pbs.tds.activities.MainMenuActivity;
 import pk.gov.pbs.tds.models.BlockAssignment;
 import pk.gov.pbs.tds.models.BlockAssignmentStatus;
 import pk.gov.pbs.tds.models.Household;
@@ -33,7 +34,6 @@ public class MetaManifest extends MetaManifestBase {
     private static final Class<?>[] MODELS = new Class[] {
             PrimaryFormModel.class, SecondaryFormModel.class, TertiaryFormModel.class,
             S1AModel.class, PrimaryModel.class, PrimaryModel.class, S0Model.class,
-
 
             // TDS Models
             InformationModel.class, BlockBoundary.class, BlockAssignment.class, BlockAssignmentStatus.class,
@@ -85,6 +85,6 @@ public class MetaManifest extends MetaManifestBase {
 
     @Override
     public Class<?> getFormMenuActivity() {
-        return null;
+        return MainMenuActivity.class;
     }
 }
