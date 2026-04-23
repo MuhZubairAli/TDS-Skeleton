@@ -11,7 +11,7 @@ import pk.gov.pbs.formbuilder.models.annotations.PrimaryIdentifier;
 import pk.gov.pbs.formbuilder.models.annotations.SecondaryIdentifier;
 import pk.gov.pbs.formbuilder.models.annotations.TertiaryIdentifier;
 
-@Table(version = 2)
+@Table(version = 3)
 public class TertiaryFormModel extends RosterSection {
     @NotNull
     @Expose
@@ -34,8 +34,8 @@ public class TertiaryFormModel extends RosterSection {
     @SerializedName("SNo")
     public Integer sno;
 
-    String name;
-    Integer age;
+    public String name;
+    public Integer age;
 
     @Override
     public Integer getSecondaryIdentifier() {
