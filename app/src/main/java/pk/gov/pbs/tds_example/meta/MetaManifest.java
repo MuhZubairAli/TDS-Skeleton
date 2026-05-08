@@ -16,12 +16,14 @@ import pk.gov.pbs.tds_example.activities.JsonBasedForm2Activity;
 import pk.gov.pbs.tds_example.activities.JsonBasedFormActivity;
 import pk.gov.pbs.tds_example.activities.PrimaryFormActivity;
 import pk.gov.pbs.tds_example.activities.S1AActivity;
+import pk.gov.pbs.tds_example.models.ExampleModel;
 import pk.gov.pbs.tds_example.models.PrimaryFormModel;
 import pk.gov.pbs.tds_example.activities.SecondaryFormActivity;
 import pk.gov.pbs.tds_example.models.S1AModel;
 import pk.gov.pbs.tds_example.models.SecondaryFormModel;
 import pk.gov.pbs.tds_example.activities.TertiaryFormActivity;
 import pk.gov.pbs.tds_example.models.TertiaryFormModel;
+import pk.gov.pbs.tds_example.models.TestModel;
 
 /**
  Every section have an index and an identifier
@@ -33,7 +35,9 @@ public class MetaManifest extends MetaManifestBase {
     private static MetaManifest INSTANCE;
     private static final Class<?>[] MODELS = new Class[] {
             PrimaryFormModel.class, SecondaryFormModel.class, TertiaryFormModel.class,
-            S1AModel.class, PrimaryModel.class, PrimaryModel.class, S0Model.class,
+            S1AModel.class, TertiaryFormModel.class, TertiaryFormModel.class, S0Model.class,
+
+            ExampleModel.class, TestModel.class,
 
             // TDS Models
             InformationModel.class, BlockBoundary.class, BlockAssignment.class, BlockAssignmentStatus.class,
